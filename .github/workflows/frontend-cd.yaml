@@ -78,7 +78,7 @@ jobs:
     - name:  Build, tag, and push image to Amazon ECR
       working-directory: starter/frontend
       run: |
-        docker build --build-arg=REACT_APP_MOVIE_API_URL=${{ env.REACT_APP_MOVIE_API_URL }} -t frontend:${GITHUB_SHA} .
+        docker build --build-arg=REACT_APP_MOVIE_API_URL=${REACT_APP_MOVIE_API_URL} -t frontend:${GITHUB_SHA} .
         docker tag frontend:${GITHUB_SHA} ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/frontend:${GITHUB_SHA}
         docker tag frontend:${GITHUB_SHA} ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/frontend:latest
         docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/frontend:${GITHUB_SHA}
