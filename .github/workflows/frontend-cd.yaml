@@ -9,6 +9,7 @@ on:
     
 env:
   NODE_VERSION: '18.x'
+  REACT_APP_MOVIE_API_URL: 'backend.default.svc.cluster.local'
 
 jobs:
   lint:
